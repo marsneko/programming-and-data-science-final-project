@@ -1,0 +1,13 @@
+> ptt_data[1:8,]$year<-2008
+> ptt_data[9:274,]$year<-2009
+> ptt_data[275:373,]$year<-2010
+> ptt_data[374:684,]$year<-2011
+> ptt_data[685:1094,]$year<-2012
+> ptt_data[1095:2608,]$year<-2012
+> ptt_data[1095:2608,]$year<-2013
+> ptt_data[2608:,]$year<-2014
+> ptt_data$time<-paste(ptt_data$year,ptt_data$date,sep ="/")
+tt_data%>%group_by(cut(time,breaks = "month"))%>%summarise(freq=n())->table_ptt_month
+> names(table_ptt_month)<-c('month','freq')
+> ggplot(data=table_ptt_month)+
++ geom_point(aes(x=month,y=freq))
