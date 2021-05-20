@@ -1,5 +1,0 @@
-```{r}
-data_wid<-scan(file=file,what = character())%>%paste(collapse = " ")%>%segment(worker())%>%table()%>%data.frame()%>%spread(key=.,value=Freq)
-  
-  
-```
