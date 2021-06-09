@@ -68,7 +68,6 @@ library(ggplot2)
 library(utils)
 library(lubridate)
 ptt_2014to2021_year<-read_csv("2014to2021_year.csv")
-
 ptt_2014to2021_year%>%filter(cata %in% c("問卦","新聞","爆卦"))%>%group_by(year(time))%>%summarise(n())->tt
 mutate(ptt_2014to2021_year,year=year(time),month=month(time))->tt
 mutate(tt,ym=paste(year,month,"1",sep="-"))->tt
