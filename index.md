@@ -59,7 +59,9 @@ if __name__ == '__main__':
     for i in range(341,39429):
         thread[i].join()
 ```
-## 資料篩選
+
+### 資料篩選
+
 ```r=
 library(tidyr)
 library(dplyr)
