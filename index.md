@@ -76,8 +76,7 @@ tt$y_m<-as.Date(tt$ym)
 ggplot(data=tt)+
   geom_point(aes(x=y_m,y=freq))
 ```
-
-###### ![](https://i.imgur.com/SJXw7TC.png)
+![](https://i.imgur.com/SJXw7TC.png)
 
 ```r=
 #透過上圖，發現大多資料點集中在2020-03之後，因此開始篩選2020-03到2021-05的資料
