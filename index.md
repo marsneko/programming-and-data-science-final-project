@@ -61,7 +61,6 @@ if __name__ == '__main__':
 ```
 
 ### 資料篩選
-
 ```r=
 library(tidyr)
 library(dplyr)
@@ -78,6 +77,7 @@ tt$y_m<-as.Date(tt$ym)
 ggplot(data=tt)+
   geom_point(aes(x=y_m,y=freq))
 ```
+
 ![](https://i.imgur.com/SJXw7TC.png)
 
 ```r=
