@@ -16,7 +16,7 @@ cookies={
     'over18':1,
     "__cfduid":"dda0debaa78515d636afe69ca1066d3871618801296"
 }
-#取得為18歲的認證和設定黨所在的資料夾
+#取得為18歲的認證和設定檔所在的資料夾
 r = requests.Session()
 payload ={
     "from":"/bbs/Gossiping/index.html",
