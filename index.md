@@ -143,6 +143,20 @@ geom_bar(stat='identity',width = 0.5)
 ```
 ![](https://i.imgur.com/DLHBHaI.png)
 
+```r=
+bartlett.test(sentiment_ptt$sentiment_value~sentiment_ptt$cata)
+```
+![](https://i.imgur.com/XWexElZ.png)
+```r=
+Ft<-aov(sentiment_ptt$sentiment_value~sentiment_ptt$cata,sentiment_ptt)
+summary(Ft)
+```
+![](https://i.imgur.com/RHwDtpc.png)
+```r=
+pairwise.t.test(sentiment_ptt$sentiment_value,sentiment_ptt$cata, p.adjust.method="bonferroni")
+```
+![](https://i.imgur.com/X1BgUtl.png)
+
 ### 對時間與情緒正面程度做分析
 ```r=
 ggplot(data=sentiment_ptt,mapping = aes(x=time,y=sentiment_value,color=cata))+
