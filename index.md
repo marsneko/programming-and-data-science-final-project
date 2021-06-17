@@ -1,7 +1,17 @@
-# 程式設計與資料科學導論 第十七組  張震奕爭議正義真意珍異
-
+# 程式設計與資料科學導論
+第十一組
+# 組員&工作&投入分數
+社會一 陳星丞 蒐集資料+分析+網站建置＋md撰寫(6)
+公衛一 鄧禮頡 整理+報告    (6)
+公衛一 張震奕 統計分析+海報    (6)
+公衛一 丁子翔 海報        (6)
 ## 實驗動機
-- 以當日發文數以及發文的標題，去分析情緒對於發文數是否有影響
+- 以八卦版(爆掛+問卦+新聞)當日發文數以及發文的標題，
+              去分析"情緒"對於發文數是否有影響
+## 套件&程式
+Python: Snownlp ,Jieba
+R: dplyr,tidy,ggplot2
+SAS: 假設檢定
 ## 操作流程
 ### 資料爬取
 ```python=
@@ -58,8 +68,7 @@ if __name__ == '__main__':
     for i in range(341,39429):
         thread[i].join()
 ```
-
-### 資料篩選
+## 資料篩選
 ```r=
 library(tidyr)
 library(dplyr)
@@ -67,6 +76,7 @@ library(ggplot2)
 library(utils)
 library(lubridate)
 ptt_2014to2021_year<-read_csv("2014to2021_year.csv")
+
 ptt_2014to2021_year%>%filter(cata %in% c("問卦","新聞","爆卦"))%>%group_by(year(time))%>%summarise(n())->tt
 mutate(ptt_2014to2021_year,year=year(time),month=month(time))->tt
 mutate(tt,ym=paste(year,month,"1",sep="-"))->tt
@@ -76,7 +86,7 @@ ggplot(data=tt)+
   geom_point(aes(x=y_m,y=freq))
 ```
 
-![](https://i.imgur.com/SJXw7TC.png)
+###### ![](https://i.imgur.com/SJXw7TC.png)
 
 ```r=
 #透過上圖，發現大多資料點集中在2020-03之後，因此開始篩選2020-03到2021-05的資料
@@ -156,7 +166,6 @@ summary(Ft)
 pairwise.t.test(sentiment_ptt$sentiment_value,sentiment_ptt$cata, p.adjust.method="bonferroni")
 ```
 ![](https://i.imgur.com/X1BgUtl.png)
-
 ### 對時間與情緒正面程度做分析
 ```r=
 ggplot(data=sentiment_ptt,mapping = aes(x=time,y=sentiment_value,color=cata))+
@@ -199,7 +208,7 @@ summary(model_1)
 #Multiple R-squared:  0.00116,	Adjusted R-squared:  0.0003487 
 #F-statistic:  1.43 on 1 and 1231 DF,  p-value: 0.232
 ```
-透過此一檢定，可知在標題的情緒正面程度與發文平率並無顯著的相關性，即便有，其可解釋的變異也極小，因此可以推測，情緒並無顯著的影響發文量
+透過此一檢定，可知在標題的情緒正面程度與發文頻率並無顯著的相關性，即便有，其可解釋的變異也極小，因此可以推測，情緒並無顯著的影響發文量
 ## 結論
 - 在情緒正面程度與發文量上並無明顯的相關
 - 在爆卦、問卦及新聞三個類別中，情緒正面程度依序為爆卦、新聞、問卦
