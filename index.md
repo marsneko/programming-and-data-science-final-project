@@ -9,9 +9,9 @@
 - 以八卦版(爆掛+問卦+新聞)當日發文數以及發文的標題，
               去分析"情緒"對於發文數是否有影響
 ## 套件&程式
-Python: Snownlp ,Jieba
-R: dplyr,tidy,ggplot2
-SAS: 假設檢定
+1. Python: Snownlp ,Jieba
+2. R: dplyr,tidy,ggplot2
+3. SAS: 假設檢定
 ## 操作流程
 ### 資料爬取
 ```python=
